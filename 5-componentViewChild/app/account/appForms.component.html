@@ -1,0 +1,23 @@
+<div>
+    <form #form>
+        <h3>Add New Account</h3>
+        <div *ngIf="error">
+            <strong>Creating Error!</strong> {{error}}
+        </div>
+        <div>
+            <label for="title">Title:</label>
+            <input id="title" type="text" name="title" #title>
+        </div>
+        <div>
+            <label for="description">Description:</label>
+            <input id="description" type="text" name="description" #description>
+        </div>
+        <div>
+            <label for="balance">Balance:</label>
+            <input id="balance" type="text" name="balance" #balance>
+        </div>
+        <div>
+            <button (click)="_createAccount(title.value, description.value, balance.value)">Create Account</button>
+        </div>
+    </form>
+</div>

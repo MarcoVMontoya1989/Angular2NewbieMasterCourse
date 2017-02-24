@@ -1,0 +1,31 @@
+<h1>Personal Finance</h1>
+
+<div>
+    <h2>Your Accounts</h2>
+    <p *ngIf="!_accounts || _accounts.length == 0">
+        You dont' have any accounts yet, please create one...
+    </p>
+
+    <div *ngFor="let account of _accounts, let i = index" [ngClass]="{
+        selected: _selected[i],
+        otherCSSClass: otherProperty
+    }">
+        <h3>
+            {{account.title}} - {{account.id}}
+        </h3>
+        <p>{{account.description}}</p>
+        <p>
+            Balance:
+            <strong>
+                {{account.balance}}
+            </strong>
+        </p>
+        <button (click)="_removeAccountComp(i)">
+            Delete
+        </button>
+        <button (click)="select(i)">
+            {{_selected[i] ? 'Deselect':'Select'}}
+        </button>
+        <br><br><br>
+    </div>
+</div>
